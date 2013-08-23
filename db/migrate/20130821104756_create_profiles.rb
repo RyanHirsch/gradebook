@@ -1,10 +1,10 @@
 class CreateProfiles < ActiveRecord::Migration
   def change
     create_table :profiles do |t|
-      t.string :alias
-      t.string :lastname
-      t.string :firstname
-      t.date :birthday
+      t.string :display_name
+      t.string :last_name
+      t.string :first_name
+      t.date :dob
       t.string :streetaddress
       t.string :state
       t.string :zipcode
@@ -12,6 +12,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :gender
       t.string :email
 
+      t.references :user, index: true
       t.timestamps
     end
   end

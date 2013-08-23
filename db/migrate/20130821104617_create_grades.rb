@@ -1,7 +1,7 @@
 class CreateGrades < ActiveRecord::Migration
   def change
     create_table :grades do |t|
-      t.int :value
+      t.integer :value
       t.references :assignment, index: true
       t.references :enrollment, index: true
 
