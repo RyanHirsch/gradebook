@@ -1,7 +1,7 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
+  has_many :enrollments
   has_many :sections, through: :enrollments
-  # has_many :grades, through: :enrollments
 
   def lastfirst
     [lastname, firstname].join(", ")

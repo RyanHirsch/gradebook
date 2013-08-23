@@ -71,9 +71,9 @@ ActiveRecord::Schema.define(version: 20130821104756) do
   add_index "grades", ["enrollment_id"], name: "index_grades_on_enrollment_id"
 
   create_table "profiles", force: true do |t|
-    t.string   "alias"
-    t.string   "lastname"
-    t.string   "firstname"
+    t.string   "display_name"
+    t.string   "last_name"
+    t.string   "first_name"
     t.date     "dob"
     t.string   "streetaddress"
     t.string   "state"
@@ -98,13 +98,11 @@ ActiveRecord::Schema.define(version: 20130821104756) do
     t.string   "name"
     t.integer  "course_id"
     t.integer  "term_id"
-    t.integer  "period_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "sections", ["course_id"], name: "index_sections_on_course_id"
-  add_index "sections", ["period_id"], name: "index_sections_on_period_id"
   add_index "sections", ["term_id"], name: "index_sections_on_term_id"
 
   create_table "terms", force: true do |t|
