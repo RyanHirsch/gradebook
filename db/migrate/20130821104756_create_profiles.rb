@@ -4,7 +4,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :alias
       t.string :lastname
       t.string :firstname
-      t.date :birthday
+      t.date :dob
       t.string :streetaddress
       t.string :state
       t.string :zipcode
@@ -12,6 +12,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :gender
       t.string :email
 
+      t.references :user, index: true
       t.timestamps
     end
   end
