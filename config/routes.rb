@@ -1,4 +1,8 @@
 Gradebook::Application.routes.draw do
+  root 'profiles#index'
+  resources :profiles
+  resources :sections
+  resources :assignments
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

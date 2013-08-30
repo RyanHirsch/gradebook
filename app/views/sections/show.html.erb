@@ -1,0 +1,33 @@
+<h1><%= @section.course.name %></h1>
+
+<div class="section-name"><%= @section.name %></div>
+<div class="term-name"><%= @section.term.name %></div>
+
+<div class="row">
+  <div class="small-6 columns">
+    <% @roles.each do |role_name, role_members| %>
+      <% if role_members.count > 1 %>
+        <h2><%= role_name %> (<%= role_members.count %>)</h2>
+      <% else %>
+        <h2><%= role_name %></h2>
+      <% end %>
+      <ul class="<%= role_name.downcase %>">
+        <% role_members.each do |member| %>
+          <li><%= member.profile.display_name %> (<%= link_to "profile", member.profile %>)</li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  <div class="small-6 columns">
+    <% @assignments.each do |type,assignments| %>
+      <h2><%= type %></h2>
+      <ul>
+        <% assignments.each do |assignment| %>
+          <li>
+            <%= link_to assignment.name, assignment %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

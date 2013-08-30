@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130821104756) do
+ActiveRecord::Schema.define(version: 20130830022617) do
 
   create_table "assignment_types", force: true do |t|
     t.string   "name"
@@ -59,6 +59,12 @@ ActiveRecord::Schema.define(version: 20130821104756) do
   add_index "enrollments", ["role_id"], name: "index_enrollments_on_role_id"
   add_index "enrollments", ["section_id"], name: "index_enrollments_on_section_id"
 
+  create_table "genders", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "grades", force: true do |t|
     t.integer  "value"
     t.integer  "assignment_id"
@@ -79,13 +85,14 @@ ActiveRecord::Schema.define(version: 20130821104756) do
     t.string   "state"
     t.string   "zipcode"
     t.string   "city"
-    t.string   "gender"
     t.string   "email"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "gender_id"
   end
 
+  add_index "profiles", ["gender_id"], name: "index_profiles_on_gender_id"
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "roles", force: true do |t|

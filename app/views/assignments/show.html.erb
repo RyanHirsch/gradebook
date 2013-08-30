@@ -1,0 +1,9 @@
+<%= link_to "< Back", @assignment.section %>
+<h1><%= @assignment.name %></h1>
+<h2><%= @assignment.average_percentage %>%</h2>
+
+<ul>
+  <% @assignment.grades.each do |grade| %>
+    <li><%= grade.profile.display_name %> - <%= grade.percentage %></li>
+  <% end %>
+</ul>

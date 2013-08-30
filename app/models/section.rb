@@ -4,4 +4,5 @@ class Section < ActiveRecord::Base
   # belongs_to :period
   has_many :enrollments
   has_many :profiles, through: :enrollments
+  has_many :assignments
 end

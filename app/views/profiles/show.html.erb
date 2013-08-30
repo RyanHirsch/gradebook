@@ -1,0 +1,62 @@
+<%= link_to "Edit", edit_profile_path(@profile) %>
+<div class="row">
+  <section class="profile-avatar small-3 columns">
+    <img src="http://placehold.it/250x350">
+  </section>
+  <section class="small-9 columns">
+    <div class="row">
+      <h1><%= @profile.display_name %></h1>
+    </div>
+    <div class="row">
+      <section class="profile-name small-6 columns">
+        <div class="first">First Name:<h3><%= @profile.first_name %></h3></div> 
+        <div class="last">Last Name:<h3><%= @profile.last_name %></h3></div>
+      </section>
+      <section class="profile-dob small-6 columns">
+        <div class="birthdate">Birthday:<h3><%= @profile.dob.to_formatted_s(:rfc822) %></h3></div>
+        <div class="age">Age:<h3><%= @profile.age %></h3></div>
+      </section>
+    </div>
+    <div class="row">
+      <div class="small-6 columns">
+        <div class="email"><h3><%= mail_to @profile.email %></h3></div>
+      </div>
+      <section class="profile-address small-6 columns">
+        <div class="address"><h4><%= @profile.streetaddress %></h4></div>
+        <div class="city-state">
+          <h4><%= @profile.city %>, <%= @profile.state %> <%= @profile.zipcode %></h4>
+        </div>
+      </section>
+    </div>
+  </section>
+</div>
+
+<h2>Enrollments</h2>
+<ul>
+  <% @enrollments.each do |enrollment| %>
+    <li><%= link_to enrollment.section.course.name, enrollment.section %> (<%= enrollment.role.name %>)</li>
+  <% end %>
+</ul>
+
+<h2>Active Sections</h2>
+<ul>
+  <% @profile.active_sections.each do |section| %>
+    <li><%= section.name %></li>
+  <% end %>
+</ul>
+
+<h2>Upcoming Sections</h2>
+<ul>
+  <% @profile.future_sections.each do |section| %>
+    <li><%= section.name %></li>
+  <% end %>
+</ul>
+
+<h2>Previous Sections</h2>
+<ul>
+  <% @profile.previous_sections.each do |section| %>
+    <li><%= section.name %></li>
+  <% end %>
+</ul>
+
+<%= @profile.inspect %>

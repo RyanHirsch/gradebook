@@ -9,7 +9,7 @@ class Assignment < ActiveRecord::Base
   has_many :grades
 
   def average_percentage
-    average_score/total.to_f
+    (average_score/total.to_f) * 100
   end
 
   def average_score

@@ -1,0 +1,91 @@
+<%= form_for @profile, html: { class: "" } do |f| %>
+  <div class="row">
+    <div class="small-8 small-centered columns">
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :display_name, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :display_name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :first_name, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :first_name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :last_name, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :last_name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :dob, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.date_field :dob %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :streetaddress, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :streetaddress %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :state, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :state %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :zipcode, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :zipcode %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :city, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :city %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :email, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.email_field :email %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :gender, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= collection_select :profile, :gender_id, Gender.all, :id, :name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 push-10">
+          <%= f.submit nil, class: "button small" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
