@@ -16,7 +16,6 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    Rails.logger.debug { params[:profile] }
     if @profile.update(profile_params)
       flash[:notice] = "Profile has been updated."
       redirect_to @profile

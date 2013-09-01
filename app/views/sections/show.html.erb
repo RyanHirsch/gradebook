@@ -1,8 +1,19 @@
-<h1><%= @section.course.name %></h1>
+<%= link_to "< Back to Course", @section.course %>
+<div class="row">
+  <div class="columns small-10">
+    <h1><%= @section.course.name %></h1>
 
-<div class="section-name"><%= @section.name %></div>
-<div class="term-name"><%= @section.term.name %></div>
-
+    <div class="section-name"><%= @section.name %></div>
+    <div class="term-name"><%= @section.term.name %></div>
+  </div>
+  <div class="columns small-2">
+    <div class="page-actions">
+      <%= link_to(edit_section_path(@section)) do %>
+        <i class="fi-page-edit"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
 <div class="row">
   <div class="small-6 columns">
     <% @roles.each do |role_name, role_members| %>

@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="columns small-10">
+    <h1><%= @course.name %></h1>
+  </div>
+  <div class="columns small-2">
+    <div class="page-actions">
+      <%= link_to(edit_course_path(@course)) do %>
+        <i class="fi-page-edit"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="columns small-12">
+    <ul>
+      <% @course.sections.each do |section| %>
+        <li><%= link_to section.name, section %> - <%= link_to section.term.name, section.term %></li>
+      <% end %>
+    </ul>
+    
+    <%= link_to "+ Section", new_section_path(course_id: @course.id) %>
+  </div>
+</div>

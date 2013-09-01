@@ -39,7 +39,9 @@
 
       <!-- Right Nav Section -->
       <ul class="right">
-        <li class=""><%= link_to "Profiles", profiles_path %></li>
+        <li class="<%= currently_active(profiles_path) %>"><%= link_to "Profiles", profiles_path %></li>
+        <li class="<%= currently_active(courses_path) %>"><%= link_to "Courses", courses_path %></li>
+        <li class="<%= currently_active(sections_path) %>"><%= link_to "Sections", sections_path %></li>
       </ul>
     </section>
   </nav>

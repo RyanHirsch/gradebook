@@ -1,11 +1,21 @@
-<%= link_to "Edit", edit_profile_path(@profile) %>
+<%= link_to "< Back", profiles_path %>
+
 <div class="row">
   <section class="profile-avatar small-3 columns">
     <img src="http://placehold.it/250x350">
   </section>
   <section class="small-9 columns">
     <div class="row">
-      <h1><%= @profile.display_name %></h1>
+      <div class="columns small-10">
+        <h1><%= @profile.display_name %></h1>
+      </div>
+      <div class="columns small-2">
+          <div class="page-actions">
+            <%= link_to(edit_profile_path(@profile)) do %>
+              <i class="fi-page-edit"></i>
+            <% end %>
+          </div>
+      </div>
     </div>
     <div class="row">
       <section class="profile-name small-6 columns">

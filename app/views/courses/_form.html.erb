@@ -1,0 +1,39 @@
+<%= form_for(@course) do |f| %>
+  <div class="row">
+    <div class="small-8 small-centered columns">
+      
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :name, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :name %>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :code, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :code %>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :department, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= collection_select :course, :department_id, Department.all, :id, :name, prompt: true %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-2 push-10">
+          <%= f.submit nil, class: "button small" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>  

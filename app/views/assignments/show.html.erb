@@ -1,9 +1,24 @@
-<%= link_to "< Back", @assignment.section %>
-<h1><%= @assignment.name %></h1>
-<h2><%= @assignment.average_percentage %>%</h2>
+<%= link_to "< Back to Section", @assignment.section %>
+<div class="row">
+  <div class="columns small-10">
+    <h1><%= @assignment.name %></h1>
+  </div>
+  <div class="columns small-2">
+    <div class="page-actions">
+      <%= link_to(edit_assignment_path(@assignment)) do %>
+        <i class="fi-page-edit"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="columns small-12">
+    <h2><%= @assignment.average_percentage %>%</h2>
 
-<ul>
-  <% @assignment.grades.each do |grade| %>
-    <li><%= grade.profile.display_name %> - <%= grade.percentage %></li>
-  <% end %>
-</ul>
+    <ul>
+      <% @assignment.grades.each do |grade| %>
+        <li><%= grade.profile.display_name %> - <%= grade.percentage %></li>
+      <% end %>
+    </ul>  
+  </div>
+</div>
